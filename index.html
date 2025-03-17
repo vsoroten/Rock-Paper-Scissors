@@ -8,7 +8,23 @@
 <body>
 
   <script>
-    console.log("Hello, World!");
+    function getComputerChoice() {
+        let rand = Math.random() * 100;
+
+        console.log(rand);
+
+        if (rand <= 33) {
+            return 'rock';
+        }
+        else if (rand > 33 && rand <= 66) {
+            return 'paper';
+        }
+        else {
+            return 'scissors';
+        }
+    }
+
+    console.log(getComputerChoice());
   </script>
 
 </body>
