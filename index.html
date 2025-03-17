@@ -36,6 +36,7 @@
     function playRound(humanChoice, computerChoice) {
         let lostMsg = 'You lose! ' + computerChoice + ' beats ' + humanChoice;
         let winMsg = 'You won! ' + humanChoice + ' beats ' + computerChoice;
+        let tieMsg = 'Tie, ' + humanChoice;
 
         if(humanChoice == 'rock') {
             if(computerChoice == 'paper') {
@@ -47,7 +48,7 @@
                 humanScore++;
             }
             else {
-                console.log('Tie');
+                console.log(tieMsg);
             }
         }
         else if (humanChoice == 'paper') {
@@ -60,7 +61,7 @@
                 humanScore++;
             }
             else {
-                console.log('Tie');
+                console.log(tieMsg);
             }
         }
         else {
@@ -73,15 +74,24 @@
                 humanScore++;
             }
             else {
-                console.log('Tie');
+                console.log(tieMsg);
             }
         }
     }
 
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+    function playGame () {
+        let bestOutOf = 5;
 
-    playRound(humanSelection, computerSelection);
+        for (let i = 0; i < bestOutOf; i++) {
+            console.log('Round: ', i+1);
+            playRound(getHumanChoice(), getComputerChoice());
+            console.log('Your score: ' + humanScore + ' Computer score: ' + computerScore);
+        }
+    }
+
+    playGame();
+
+    //playRound(humanSelection, computerSelection);
     //console.log('Your choice: '+ getHumanChoice());
     //console.log('Computer choice: ' + getComputerChoice());
   
