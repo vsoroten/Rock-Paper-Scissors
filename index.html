@@ -33,9 +33,57 @@
         return choice.toLowerCase();
     }
 
+    function playRound(humanChoice, computerChoice) {
+        let lostMsg = 'You lose! ' + computerChoice + ' beats ' + humanChoice;
+        let winMsg = 'You won! ' + humanChoice + ' beats ' + computerChoice;
 
-    console.log('Your choice: '+ getHumanChoice());
-    console.log('Computer choice: ' + getComputerChoice());
+        if(humanChoice == 'rock') {
+            if(computerChoice == 'paper') {
+                console.log(lostMsg);
+                computerScore++;
+            }
+            else if (computerChoice == 'scissors') {
+                console.log(winMsg);
+                humanScore++;
+            }
+            else {
+                console.log('Tie');
+            }
+        }
+        else if (humanChoice == 'paper') {
+            if (computerChoice == 'scissors') {
+                console.log(lostMsg);
+                computerScore++;
+            }
+            else if (computerChoice == 'rock') {
+                console.log(winMsg);
+                humanScore++;
+            }
+            else {
+                console.log('Tie');
+            }
+        }
+        else {
+            if (computerChoice == 'rock') {
+                console.log(lostMsg);
+                computerScore++;
+            } 
+            else if (computerChoice == 'scissors') {
+                console.log(winMsg);
+                humanScore++;
+            }
+            else {
+                console.log('Tie');
+            }
+        }
+    }
+
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+
+    playRound(humanSelection, computerSelection);
+    //console.log('Your choice: '+ getHumanChoice());
+    //console.log('Computer choice: ' + getComputerChoice());
   
   </script>
 
