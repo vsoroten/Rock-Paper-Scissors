@@ -8,6 +8,9 @@
 <body>
 
   <script>
+    let humanScore = 0;
+    let computerScore = 0;
+
     function getComputerChoice() {
         let rand = Math.random() * 100;
 
@@ -30,7 +33,7 @@
         return choice.toLowerCase();
     }
 
-    
+
     console.log('Your choice: '+ getHumanChoice());
     console.log('Computer choice: ' + getComputerChoice());
   
