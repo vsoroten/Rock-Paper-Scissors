@@ -14,7 +14,7 @@
     function getComputerChoice() {
         let rand = Math.random() * 100;
 
-        console.log(rand);
+        console.log(rand); 
 
         if (rand <= 33) {
             return 'rock';
@@ -37,45 +37,46 @@
         let lostMsg = 'You lose! ' + computerChoice + ' beats ' + humanChoice;
         let winMsg = 'You won! ' + humanChoice + ' beats ' + computerChoice;
         let tieMsg = 'Tie, ' + humanChoice;
+        let win = false;
+        let tie = false;
 
-        if(humanChoice == 'rock') {
-            if(computerChoice == 'paper') {
-                console.log(lostMsg);
-                computerScore++;
-            }
-            else if (computerChoice == 'scissors') {
-                console.log(winMsg);
-                humanScore++;
-            }
-            else {
-                console.log(tieMsg);
-            }
+        switch(humanChoice) {
+            case 'rock':
+                if (computerChoice == 'scissors') {
+                    win = true;
+                } 
+                else if (computerChoice == 'rock') {
+                    tie = true;
+                }
+                break;
+            case 'paper':
+                if (computerChoice == 'rock') {
+                    win = true;
+                }
+                else if (computerChoice == 'paper') {
+                    tie = true;
+                }
+                break;
+            case 'scissors':
+                if (computerChoice == 'paper') {
+                    win = true;
+                }
+                else if (computerChoice == 'scissors') {
+                    tie = true;
+                }
+                break;
         }
-        else if (humanChoice == 'paper') {
-            if (computerChoice == 'scissors') {
-                console.log(lostMsg);
-                computerScore++;
-            }
-            else if (computerChoice == 'rock') {
-                console.log(winMsg);
-                humanScore++;
-            }
-            else {
-                console.log(tieMsg);
-            }
+
+        if (win) {
+            console.log(winMsg);
+            humanScore++;
+        }
+        else if (tie) {
+            console.log(tieMsg);
         }
         else {
-            if (computerChoice == 'rock') {
-                console.log(lostMsg);
-                computerScore++;
-            } 
-            else if (computerChoice == 'scissors') {
-                console.log(winMsg);
-                humanScore++;
-            }
-            else {
-                console.log(tieMsg);
-            }
+            console.log(lostMsg);
+            computerScore++;
         }
     }
 
@@ -90,10 +91,6 @@
     }
 
     playGame();
-
-    //playRound(humanSelection, computerSelection);
-    //console.log('Your choice: '+ getHumanChoice());
-    //console.log('Computer choice: ' + getComputerChoice());
   
   </script>
 
